@@ -4,11 +4,11 @@ export const birthdayContent = {
   openLabel: 'Open',
   letterLines: [
     'Vetha...',
-    'Indha message-a just type panni wish pannirukalam...',
-    'Aana unakku edhachum different-ah pannalam nu thonuchu.',
-    'Adhan idha create panniruken.',
+    'Indha birthday-ku direct-ah wish panna mudiyala...',
+    'Adhan, konjam different-ah wish pannalam nu thonuchu. 🤍',
+    'Innaiku just enjoy pannu… mathadhellam nalaikku paathukalam! 😄',
   ],
-  birthday: 'Happy Birthday',
+  birthday: 'Happy Birthday, Vetha! ✨',
   finalWish: 'Eppovume happy-ah iru.',
 } as const
 
