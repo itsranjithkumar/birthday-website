@@ -166,14 +166,28 @@ export function BirthdayExperience() {
         {scene === 'letter' && <section className="letter-scene" aria-live="polite" aria-labelledby="letter-title" onClick={advance}>
           <div className="letter-rule" />
           <p className="eyebrow">For {birthdayContent.recipient}</p>
-          <h2 id="letter-title" className="letter-text">{birthdayContent.letterLines[lineIndex]}</h2>
+          <h2 id="letter-title" className="letter-text">
+            {birthdayContent.letterLines[lineIndex].includes('💜') 
+              ? (
+                <>
+                  {birthdayContent.letterLines[lineIndex].split('💜').map((part, index) => (
+                    index === 0 ? part : <><span className="heart-small" key="heart">💜</span>{part}</>
+                  ))}
+                </>
+              )
+              : birthdayContent.letterLines[lineIndex]}
+          </h2>
           <div className="letter-footer"><span>{String(lineIndex + 1).padStart(2, '0')}</span><span className="progress-dots">{birthdayContent.letterLines.map((_, index) => <i key={index} className={index <= lineIndex ? 'active' : ''} />)}</span><span>{String(TOTAL_LINES).padStart(2, '0')}</span></div>
           <p className="tap-hint">Tap anywhere to continue</p>
         </section>}
 
         {scene === 'birthday' && <section className="birthday-scene" aria-live="polite" aria-labelledby="birthday-title">
           <p className="eyebrow birthday-eyebrow">For a very special person</p>
-          <h2 id="birthday-title"><span>{birthdayContent.birthday}</span><strong>{birthdayContent.recipient}</strong><em>✦</em></h2>
+          <h2 id="birthday-title">
+            <span>{birthdayContent.birthday.split('💜').map((part, index) => (
+              index === 0 ? part : <><span className="heart-small" key="heart">💜</span>{part}</>
+            ))}</span><em>✦</em>
+          </h2>
           <p className="wish-line">{birthdayContent.finalWish}</p>
         </section>}
 
